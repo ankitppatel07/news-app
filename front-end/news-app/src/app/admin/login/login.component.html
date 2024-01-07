@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && handleSubmit()">
+
+    <div class="form-group">
+        <label for="loginEmail">Email</label>
+        <input type="loginEmail" id="loginEmail" class="form-control" formControlName="loginEmail"
+            [ngClass]="{'is-invalid': loginForm.get('loginEmail').touched && loginForm.get('loginEmail').invalid }">
+        <span class="invalid-feedback">
+            <span *ngIf="loginForm.get('loginEmail').hasError('required')">Email can't be blank</span>
+            <span *ngIf="loginForm.get('loginEmail').hasError('email')">Email must be valid</span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" class="form-control" formControlName="loginPassword"
+            [ngClass]="{'is-invalid': loginForm.get('loginPassword').touched && loginForm.get('loginPassword').invalid}">
+        <span class="invalid-feedback">Password can't be blank</span>
+    </div>
+
+    <button [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
+    
+</form>

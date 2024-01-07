@@ -1,0 +1,42 @@
+<h4 id="searchQuery">Search By Query: </h4><input id="searchQuery" class="ml-3" type="text" placeholder="Search..." [(ngModel)]="query">
+<hr>
+<table class="table">
+    <thead class="thead-dark">
+
+        <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Query</th>
+            <th scope="col">Status</th>
+        </tr>
+
+    </thead>
+
+    <tbody appColor *ngFor="let i of allQueriesArray | querySearch:query">
+        <tr *ngIf="i.email !== emailFlag">
+            <td> {{i.email}}</td>
+            <td> {{i.query}}</td>
+            <td> {{i.status}}</td>
+            <td>
+                <button class="btn btn-sm btn-dark" (click)="editQuery(i.email)">Edit</button>
+            </td>
+        </tr>
+
+        <tr *ngIf="i.email === emailFlag">
+            <td> {{i.email}}</td>
+            <td> {{i.query}}</td>
+            <td>
+                <select name="" id="" [(ngModel)]=i.status>
+                    <option value="pending" >
+                        Pending
+                    </option>
+                    <option value="resolved" >
+                        Resolved
+                    </option>
+                </select>
+            </td>
+            <td>
+                <button class="btn btn-sm btn-success" (click)="updateQuery(i)">Update</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

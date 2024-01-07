@@ -1,0 +1,43 @@
+<h4 id="searchUser">Search By Name: </h4><input id="searchUser" class="ml-3" type="text" placeholder="Search..." [(ngModel)]="query">
+<hr>
+<table class="table">
+    <thead class="thead-dark">
+
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">User Rights</th>
+        </tr>
+
+    </thead>
+
+    <tbody appColor *ngFor="let i of allUsers | userSearch:query">
+        <tr *ngIf="i.id !== idFlag && loginRegService.getUserDetails().email != i.email"> <!--&& i.userType != 'admin'"> -->
+            <td> {{i.name}}</td>
+            <td> {{i.email}}</td>
+            <td> {{i.userType}}</td>
+            <td>
+                <button class="btn btn-sm btn-dark" (click)="editUser(i.id)">Edit</button>
+            </td>
+        </tr>
+
+        <tr *ngIf="i.id === idFlag && loginRegService.getUserDetails().email != i.email" > <!-- && i.userType != 'admin'"> -->
+            <td> {{i.name}}</td>
+            <td> {{i.email}}</td>
+            
+            <td>
+                <select name="" id="" [(ngModel)]=i.userType [disabled]="i.userType == 'admin'">
+                    <option value="admin">
+                        Admin
+                    </option>
+                    <option value="normal" >
+                        Normal
+                    </option>
+                </select>
+            </td>
+            <td>
+                <button class="btn btn-sm btn-success" (click)="updateUser(i)">Update</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

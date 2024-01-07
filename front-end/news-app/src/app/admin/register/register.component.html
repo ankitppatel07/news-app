@@ -1,0 +1,36 @@
+<form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && handleSubmit()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name"
+            [ngClass]="{'is-invalid': registerForm.get('name').touched && registerForm.get('name').invalid }">
+        <span class="invalid-feedback">Name can't be blank</span>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email"
+            [ngClass]="{'is-invalid': registerForm.get('email').touched && registerForm.get('email').invalid }">
+        <span class="invalid-feedback">
+            <span *ngIf="registerForm.get('email').hasError('required')">Email can't be blank</span>
+            <span *ngIf="registerForm.get('email').hasError('email')">Email must be valid</span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" formControlName="password"
+            [ngClass]="{'is-invalid': registerForm.get('password').touched && registerForm.get('password').invalid}">
+        <span class="invalid-feedback">Password can't be blank</span>
+    </div>
+
+    <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword"
+            [ngClass]="{'is-invalid': registerForm.get('confirmPassword').invalid}">
+        <span class="invalid-feedback">Password don't match!!!</span>
+
+    </div>
+    <!-- implement passwords do not match -->
+
+    <button [disabled]="registerForm.invalid" class="btn btn-primary">Register</button>
+</form>

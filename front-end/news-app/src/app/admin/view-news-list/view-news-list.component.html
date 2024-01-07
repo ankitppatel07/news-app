@@ -1,0 +1,50 @@
+<h4 id="searchNews">Search By Title: </h4><input id="searchNews" class="ml-3" type="text" placeholder="Search..." [(ngModel)]="query">
+<hr>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Decription</th>
+            <th scope="col">Category</th>
+            <th scope="col">Publish Date</th>
+            <th scope="col">Edit/Delete</th>
+        </tr>
+
+    </thead>
+
+    <tbody *ngFor="let i of allNewsArray | search:query">
+        <tr *ngIf="i.id !== idFlag">
+            <td> {{i.title}}</td>
+            <td> {{i.description}}</td>
+            <td> {{i.category}}</td>
+            <td> {{i.publishedAt | date:"MM/dd/yy hh:mm:ss"}}</td>
+            <td>
+                <button class="btn btn-dark btn-sm" (click)="editNews(i.id)">Edit</button>
+                <button class="btn btn-danger btn-sm mt-2" (click)="deleteNews(i)">Delete</button>
+            </td>
+        </tr>
+
+        <tr *ngIf="i.id === idFlag">
+            <td><input type="text" size="20" [(ngModel)]=i.title></td>
+            <td>
+                <textarea rows="4" cols="60" [(ngModel)]=i.description>
+                </textarea>
+            </td>
+            <td>
+                <select name="" id="" [(ngModel)]=i.category>
+                    <option value="General" >
+                        General
+                    </option>
+                    <option value="Sports" >
+                        Sports
+                    </option>
+                </select>
+            </td>
+            <td style="width: 150px;">{{i.publishedAt | date}}</td>
+            <td>
+                <button class="btn btn-success btn-sm" (click)="updateNews(i)">Update</button>
+                <button class="btn btn-danger btn-sm mt-2" (click)="deleteNews(i)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

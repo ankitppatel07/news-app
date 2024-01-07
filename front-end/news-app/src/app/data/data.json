@@ -1,0 +1,19 @@
+{
+
+"normal" : {
+    "weatherUrl" : "https://api.openweathermap.org/data/2.5/weather?",
+    "apiKey" : "056cfc97bdb28fc96a9febb9c978d3d7",
+    "newsUrl" : "http://localhost:3000/news-list",
+    "latestNewsUrl" : "http://localhost:3000/latest-news-list",
+    "queryUrl" : "http://localhost:3000/query",
+    "sportsNewsUrl" : "http://localhost:3000/sports-news",
+    "latestSportsNewsUrl" : "http://localhost:3000/latest-sports-news"
+},
+
+"admin" : {
+	"registerUrl" : "http://localhost:3000/register",
+	"loginUrl" : "http://localhost:3000/login",
+	"userUrl" : "http://localhost:3000/user"
+}
+
+}

@@ -1,0 +1,13 @@
+<h4>World News:</h4>
+<div class="row border">
+    <div class="container">
+        <div *ngFor="let i of allNewsArray | slice:3">
+            <div class="row border">
+                <h5 class="ml-2">{{i.title}}</h5>
+                <p class="ml-4">- {{i.description}}</p>
+                <p class="ml-4"><a href="{{i.articleUrl}}">Read More... </a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>

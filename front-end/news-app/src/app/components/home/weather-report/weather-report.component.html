@@ -1,0 +1,21 @@
+<div class="row border pt-2 pb-2">
+    <h4 class="ml-4 mr-4">Weather Info:</h4>
+    <h4 class="mr-4">     
+        <!-- When Current Time is After Midnight -->
+        <div *ngIf="currDate < sunriseDate && currDate < sunsetDate">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div *ngIf="currDate > sunriseDate && currDate < sunsetDate">
+            <i class="fas fa-sun"></i>
+        </div>
+        <div *ngIf="currDate > sunsetDate && currDate > sunriseDate">
+            <i class="fas fa-moon"></i>
+        </div>
+    </h4>
+    <h4 class="mr-4">{{weatherObject.description | titlecase}}</h4>
+    <h4 class="mr-4"><i class="fas fa-thermometer-half"></i> {{weatherObject.temp}} &#8451;</h4>
+    <h4 class="mr-4"><i class="fas fa-wind"></i> {{weatherObject.windSpeed}} m/s</h4>
+    <h4><i class="fas fa-map-marker-alt"></i> {{weatherObject.location}}</h4>
+    <h4>, {{weatherObject.country}}</h4>
+</div>
+<hr>

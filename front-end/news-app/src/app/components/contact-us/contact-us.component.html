@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>If you have any queries regarding the service provided, the content of the website,
+            or if you would like to report anything, you can submit a query below and we will revert ASAP</h3>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <hr>
+            <form [formGroup]="contactForm" (ngSubmit)="contactForm.valid && handleSubmit()">
+                <div class="form-group">
+                    <label for="email"><h4>Email:</h4></label>
+                    <input type="email" id="email" class="form-control" formControlName="email"
+                        [ngClass]="{'is-invalid': contactForm.get('email').touched && contactForm.get('email').invalid }">
+                    <span class="invalid-feedback">
+                        <span *ngIf="contactForm.get('email').hasError('required')">Email can't be blank</span>
+                        <span *ngIf="contactForm.get('email').hasError('email')">Email must be valid</span>
+                    </span>
+                </div>
+    
+                <div class="form-group">
+                    <label for="query"><h4>Query:</h4></label>
+                    <input type="text" id="query" class="form-control" formControlName="query"
+                        [ngClass]="{'is-invalid': contactForm.get('query').touched && contactForm.get('query').invalid }">
+                    <span class="invalid-feedback">Query can't be blank</span>
+                </div>
+    
+                <button [disabled]="contactForm.invalid" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>

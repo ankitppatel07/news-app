@@ -1,0 +1,45 @@
+<h3 style="text-align: center;">Breaking News:</h3>
+<div class="row justify-content-center border pt-4 pb-4">
+    <div class="card-columns">
+        <div class="card border-dark">
+            <img class="card-img-top" src={{latestSportsNews[0]?.imageUrl}} alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{latestSportsNews[0]?.title}}</h5>
+                <p>- {{latestSportsNews[0]?.description}}</p>
+                <!-- <p>- {{latestSportsNews[0]?.articleUrl}}</p> -->
+            </div>
+        </div>
+        <div class="card border-dark">
+            <img class="card-img-top" src={{latestSportsNews[1]?.imageUrl}} alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{latestSportsNews[1]?.title}}</h5>
+                <p>- {{latestSportsNews[1]?.description}}</p>
+                <!-- <p>- {{latestSportsNews[1]?.articleUrl}}</p> -->
+            </div>
+        </div>
+        <div class="card border-dark">
+            <img class="card-img-top" src={{latestSportsNews[2]?.imageUrl}} alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{latestSportsNews[2]?.title}}</h5>
+                <p>- {{latestSportsNews[2]?.description}}</p>
+                <!-- <p>- {{latestSportsNews[2]?.articleUrl}}</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+
+<h4>World News:</h4>
+<div class="row border">
+    <div class="container">
+        <div *ngFor="let i of allSportsNews | slice:3">
+            <div class="row border">
+                <h5 class="ml-2">{{i.title}}</h5>
+                <p class="ml-4">- {{i.description}}</p>
+                <p class="ml-4"><a href="{{i.articleUrl}}">Read More... </a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>

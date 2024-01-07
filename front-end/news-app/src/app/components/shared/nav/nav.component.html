@@ -1,0 +1,76 @@
+<div *ngIf="!loginRegService.getUserDetails()">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item mr-4">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item mr-4">
+                    <a class="nav-link" routerLink="/sports">Sports</a>
+                </li>
+                <li class="nav-item mr-4">
+                    <a class="nav-link" routerLink="/contact-us">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/about-us">About Us</a>
+                </li>
+            </ul>
+            <button class="btn btn-secondary" routerLink='/login'>Sign-in</button>
+        </div>
+    </nav>
+</div>
+<!-- For Admin -->
+<div *ngIf="loginRegService.getUserDetails()?.userType == 'admin'">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item mr-4">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item mr-4">
+                    <a class="nav-link" routerLink="/sports">Sports</a>
+                </li>
+                <li class="nav-item mr-4">
+                    <a class="nav-link" routerLink="/contact-us">Contact Us</a>
+                </li>
+                <li class="nav-item mr-4">
+                    <a class="nav-link" routerLink="/about-us">About Us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin Features
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" routerLink="/add-news">News Form</a>
+                        <a class="dropdown-item" routerLink="/view-news">Edit News</a>
+                        <a class="dropdown-item" routerLink="/view-queries">Edit Queries</a>
+                        <a class="dropdown-item" routerLink="/user-list">User List</a>
+                      </div>
+                </li>
+            </ul>
+            <button class="btn btn-secondary" (click)='handleLogout()'>Logout</button>
+        </div>
+    </nav>
+</div>
+<!-- For Normal Users -->
+<div *ngIf="loginRegService.getUserDetails()?.userType == 'normal'">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item mr-4">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item mr-4">
+                    <a class="nav-link" routerLink="/sports">Sports</a>
+                </li>
+                <li class="nav-item mr-4">
+                    <a class="nav-link" routerLink="/contact-us">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/about-us">About Us</a>
+                </li>
+            </ul>
+            <button class="btn btn-secondary" (click)='handleLogout()'>Logout</button>
+        </div>
+    </nav>
+</div>

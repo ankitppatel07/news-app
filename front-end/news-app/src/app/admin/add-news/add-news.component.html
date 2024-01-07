@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-4">
+        <form [formGroup]="addNewsForm" (ngSubmit)="addNewsForm.valid && handleSubmit()">
+            
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" class="form-control" formControlName="title"
+                    [ngClass]="{'is-invalid': addNewsForm.get('title').touched && addNewsForm.get('title').invalid }">
+                <span class="invalid-feedback">Title can't be blank</span>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" class="form-control" formControlName="description" cols="30" rows="5"
+                    [ngClass]="{'is-invalid': addNewsForm.get('description').touched && addNewsForm.get('description').invalid }">
+                </textarea>
+                <span class="invalid-feedback">Description can't be blank</span>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select name="category" id="category" class="form-control" formControlName="category">
+                    <option value="General">General</option>
+                    <option value="Sports">Sports</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="articleUrl">Article Url</label>
+                <input type="text" id="articleUrl" class="form-control" formControlName="articleUrl"
+                    [ngClass]="{'is-invalid': addNewsForm.get('articleUrl').touched && addNewsForm.get('articleUrl').invalid }">
+                <span class="invalid-feedback">Article Url can't be blank</span>
+            </div>
+
+            <div class="form-group">
+                <label for="imageUrl">Image Url</label>
+                <input type="text" id="imageUrl" class="form-control" formControlName="imageUrl"
+                    [ngClass]="{'is-invalid': addNewsForm.get('imageUrl').touched && addNewsForm.get('imageUrl').invalid }">
+                <span class="invalid-feedback">Url Image can't be blank</span>
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="publishedAt">Published At</label>
+                <input type="text" id="publishedAt" class="form-control" formControlName="publishedAt"
+                    [ngClass]="{'is-invalid': addNewsForm.get('publishedAt').touched && addNewsForm.get('publishedAt').invalid }">
+                <span class="invalid-feedback">Published At can't be blank</span>
+            </div> -->
+
+            <button [disabled]="addNewsForm.invalid" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+</div>

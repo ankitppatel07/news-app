@@ -1,0 +1,9 @@
+.down-under {
+    z-index: 0;
+}
+
+img {
+    object-fit: cover;
+    height: 600px;
+    width: 800px;   
+}
