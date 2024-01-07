@@ -6,7 +6,7 @@ import { Query } from 'src/app/models/query'
 //import data from 'src/app/data/data.json';
 
 const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?"
-const apiKey = "056cfc97bdb28fc96a9febb9c978d3d7"
+const apiKey = ""
 const newsUrl = "http://localhost:3000/news-list"
 const latestNewsUrl = "http://localhost:3000/latest-news-list"
 const queryUrl = "http://localhost:3000/query"
