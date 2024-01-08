@@ -1,0 +1,65 @@
+[
+	{
+        "title": "In a Pandemic, Getting to the Triathlon Is as Hard as Finishing It",
+        "description": "An Ironman race on Saturday in Tallinn, Estonia, was the first such race since March. Precautions included travel restrictions, temperature checks, masked volunteers and medals handed over in bags.",
+        "category": "Sports",
+        "articleUrl": "https://www.nytimes.com/2020/09/08/sports/ironman-tallinn-triathlon-pandemic.html",
+        "imageUrl": "https://static01.nyt.com/images/2020/09/08/sports/08ironman-2-02/08ironman-2-02-superJumbo.jpg?quality=90&auto=webp"
+    },
+    {
+        "title": "With Novak Djokovic Out, the U.S. Open Peeks at Tennis’s Future",
+        "description": "Parity and some missing star power from Djokovic, Roger Federer, Rafael Nadal and Andy Murray. A wide open women’s game beyond Serena Williams. This is where tennis is going.",
+        "category": "Sports",
+        "articleUrl": "https://www.nytimes.com/2020/09/07/sports/tennis/us-open-tennis-future-novak-djokovic.html",
+        "imageUrl": "https://static01.nyt.com/images/2020/09/07/sports/07usopen-future01/merlin_176631624_be540a9c-4144-4969-87ac-3b5d9a02752f-superJumbo.jpg?quality=90&auto=webp"
+    },
+    {
+        "title": "In a Reversal, Lionel Messi Says He Will Stay With Barcelona",
+        "description": "I will stay at the club so as not to get into a legal dispute,” Messi said, contending that the team had acted in bad faith.",
+        "category": "Sports",
+        "articleUrl": "https://www.nytimes.com/2020/09/04/sports/soccer/lionel-messi-barcelona.html",
+        "imageUrl": "https://static01.nyt.com/images/2020/09/05/sports/04messi-print/merlin_175716516_4ac2f4b5-1407-431b-a1e5-d5024c03234a-superJumbo.jpg?quality=90&auto=webp"
+    },
+	{
+        "title": "What Month Is It? Pandemic Scrambles the Travel Calendar",
+        "description": "With more families working and studying remotely, resorts are dangling attractive rates, enhanced Wi-Fi and the charms of autumn as reasons to forget summer is ending.",
+        "category": "General",
+        "articleUrl": "https://www.nytimes.com/2020/09/08/travel/fall-resorts-coronavirus.html",
+        "imageUrl": "https://static01.nyt.com/images/2020/09/04/travel/08fall-virus-5/oakImage-1599229592200-superJumbo.jpg?quality=90&auto=webp"
+    },
+    {
+        "title": "A Nostalgic (if Isolating) Road Trip Along Route 66",
+        "description": "Driven by an early fascination with the American West, a photographer set off to travel part of America’s most celebrated highway.",
+        "category": "General",
+        "articleUrl": "https://www.nytimes.com/2020/09/07/travel/route-66.html",
+        "imageUrl": "https://static01.nyt.com/images/2020/09/08/travel/07travel-highway-12-print/07travel-highway-12-print-superJumbo-v2.jpg?quality=90&auto=webp"
+    },
+    {
+        "title": "Melting Glaciers Are Filling Unstable Lakes. And They’re Growing.",
+        "description": "A census of the world’s glacial lakes shows there are more than there used to be, and their water volume is growing.",
+        "category": "General",
+        "articleUrl": "https://www.nytimes.com/2020/09/02/science/global-warming-glacial-lakes.html",
+        "imageUrl": "https://static01.nyt.com/images/2020/09/02/science/02TB-GLACIALLAKES1/02TB-GLACIALLAKES1-superJumbo.jpg?quality=90&auto=webp"
+    },
+    {
+        "title": "Lakers’ ‘Others’ Lend LeBron James a Hand",
+        "description": "Rajon Rondo and Markieff Morris gave the Lakers an unexpected lift Sunday in the team’s 117-109 victory over the Houston Rockets to even the Western Conference semifinal matchup heading into Game 3.",
+        "category": "Sports",
+        "articleUrl": "https://www.nytimes.com/2020/09/07/sports/basketball/lakers-vs-rockets-score-game-2.html",
+        "imageUrl": "https://static01.nyt.com/images/2020/09/07/sports/07nba-lakers-1/merlin_176677917_a08df38e-ed6f-494f-9507-aa47cda22465-superJumbo.jpg?quality=90&auto=webp"
+    },
+    {
+        "title": "In a Big Box-Office Test, ‘Tenet’ Grosses $20 Million",
+        "description": "Normally, a Christopher Nolan film would bring in $50 million in North America during an opening weekend. But moviegoing is not normal these days.",
+        "category": "General",
+        "articleUrl": "https://www.nytimes.com/2020/09/06/movies/tenet-box-office.html",
+        "imageUrl": "https://static01.nyt.com/images/2020/09/06/arts/06box/06box-superJumbo-v2.jpg?quality=90&auto=webp"
+    },
+    {
+    	"title": "New Apartments in the Suburbs Attract New Yorkers",
+    	"description": "City residents head to new developments in walkable suburban communities where they can get apartments with more indoor and outdoor space.",
+    	"category": "General",
+    	"articleUrl": "https://www.nytimes.com/2020/09/08/realestate/suburbs-attract-new-yorkers.html",
+    	"imageUrl": "https://static01.nyt.com/images/2020/09/08/realestate/08suburbs1/08suburbs1-superJumbo.jpg?quality=90&auto=webp"
+	}
+]
