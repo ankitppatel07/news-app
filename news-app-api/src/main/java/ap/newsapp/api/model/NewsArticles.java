@@ -1,5 +1,8 @@
 package ap.newsapp.api.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,6 +20,7 @@ public class NewsArticles {
 	private String category;
 	private String articleUrl;
 	private String imageUrl;
+	private String publishedAt;
 
 	public int getId() {
 		return id;
@@ -66,10 +70,21 @@ public class NewsArticles {
 		this.imageUrl = imageUrl;
 	}
 	
+	public String getPublishedAt() {
+		return publishedAt;
+	}
+	
+	public void setPublishedAt() {
+		String pattern = "MM-dd-yyyy hh:mm:ss";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		String date = simpleDateFormat.format(new Date());
+		this.publishedAt = date;
+	}
+	
 	@Override
 	public String toString() {
 		return "NewsArticles [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category
-				+ ", articleUrl=" + articleUrl + ", imageUrl=" + imageUrl + "]";
+				+ ", articleUrl=" + articleUrl + ", imageUrl=" + imageUrl + ", publishedAt=" + publishedAt + "]";
 	}
 	
 }
