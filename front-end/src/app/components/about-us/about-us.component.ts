@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-about-us',
@@ -7,16 +7,19 @@ import { Router } from '@angular/router'
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit {
-  latitude = 40.758896;
-  longitude = -73.985130;
-  mapType = 'hybrid';
-  maxZoom: 15;
-  minZoom: 8;
-  zoom: 5;
+
+  options: google.maps.MapOptions = {
+    center: {
+      lat: 40.758896,
+      lng: -73.985130
+    },
+    zoom: 10
+  };
 
   constructor(private router : Router) { }
 
   ngOnInit(): void {
+    
   }
 
 }

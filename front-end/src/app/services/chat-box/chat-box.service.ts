@@ -6,15 +6,15 @@ import { Message } from 'src/app/models/message'
   providedIn: 'root'
 })
 export class ChatBoxService {
-  currentMsg = this.socket.fromEvent<Message>('onMsgFromServer');
+  // currentMsg = this.socket.fromEvent<Message>('onMsgFromServer');
 
-  constructor(private socket: Socket) { }
+  // constructor(private socket: Socket) { }
 
-  sendNewMessage(name, msgContent) {
-    const message = { name , msgContent}
-    //console.log(name + " sending msg: " +msgContent)
-    this.socket.emit('onMsgFromClient', message)
-  }
+  // sendNewMessage(name, msgContent) {
+  //   const message = { name , msgContent}
+  //   //console.log(name + " sending msg: " +msgContent)
+  //   this.socket.emit('onMsgFromClient', message)
+  // }
 
 
 

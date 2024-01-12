@@ -19,49 +19,49 @@ export class ChatBoxComponent implements OnInit {
     private loginRegService: LoginRegService) { }
 
   ngOnInit(): void {
-    this.chatBoxService.currentMsg.subscribe(
-      (data) => {
-        //console.log("Entered Msg: ", data)
-        this.currentMsg = data;
-        //console.log("Msg from Server: ", data)
-        this.updateConversation(data.name, data.msgContent)
-      }
-    );
+    // this.chatBoxService.currentMsg.subscribe(
+    //   (data) => {
+    //     //console.log("Entered Msg: ", data)
+    //     this.currentMsg = data;
+    //     //console.log("Msg from Server: ", data)
+    //     this.updateConversation(data.name, data.msgContent)
+    //   }
+    // );
   }
 
-  sendNewMessage() {
-    this.chatBoxService.sendNewMessage(this.name, this.msgContent);
-    this.msgContent = '';
-  }
+  // sendNewMessage() {
+  //   this.chatBoxService.sendNewMessage(this.name, this.msgContent);
+  //   this.msgContent = '';
+  // }
 
-  updateConversation(name, msgContent) {
-    var liNode = `<li class="list-group-item">
-                      <strong>${name}:</strong>
-                      <p>${msgContent}</p>
-                  </li>`
-    var msgList = document.getElementById('msgList')
-    msgList.insertAdjacentHTML("beforeend", liNode);
-  }
+  // updateConversation(name, msgContent) {
+  //   var liNode = `<li class="list-group-item">
+  //                     <strong>${name}:</strong>
+  //                     <p>${msgContent}</p>
+  //                 </li>`
+  //   var msgList = document.getElementById('msgList')
+  //   msgList.insertAdjacentHTML("beforeend", liNode);
+  // }
 
 
 
-  openChatBox() {
-    if(this.loginRegService.getUserDetails()){
-      this.name = this.loginRegService.getUserDetails().name;
-    }
-    if(this.name == '' || this.name == null) {
-      this.name = prompt("Enter you name:");
-    }
+  // openChatBox() {
+  //   if(this.loginRegService.getUserDetails()){
+  //     this.name = this.loginRegService.getUserDetails().name;
+  //   }
+  //   if(this.name == '' || this.name == null) {
+  //     this.name = prompt("Enter you name:");
+  //   }
     
-    if(this.name == '' || this.name == null) {
-      this.name = "Anonymous"
-    }
-    document.getElementById("chat-box").style.display = "block";
-    document.getElementById("chat-box-btn").style.display = "none";
-  }
+  //   if(this.name == '' || this.name == null) {
+  //     this.name = "Anonymous"
+  //   }
+  //   document.getElementById("chat-box").style.display = "block";
+  //   document.getElementById("chat-box-btn").style.display = "none";
+  // }
 
-  closeChatBox() {
-    document.getElementById("chat-box").style.display = "none";
-    document.getElementById("chat-box-btn").style.display = "block";
-  }
+  // closeChatBox() {
+  //   document.getElementById("chat-box").style.display = "none";
+  //   document.getElementById("chat-box-btn").style.display = "block";
+  // }
 }

@@ -29,9 +29,11 @@ import { AuthGuard } from './guards/auth.guard';
 import { UserListComponent } from './admin/user-list/user-list.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { UserSearchPipe } from './pipes/user-search.pipe';
-import { QuerySearchPipe } from './pipes/query-search.pipe'
+import { QuerySearchPipe } from './pipes/query-search.pipe';
+import { GoogleMapsModule } from '@angular/google-maps'
 
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+
+// const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -76,10 +78,11 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    SocketIoModule.forRoot(config),
+    // SocketIoModule.forRoot(config),
     HttpClientModule,
     RouterModule.forRoot(routes, {}),
-    ReactiveFormsModule    
+    ReactiveFormsModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
