@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 //import data from 'src/app/data/data.json';
 
-const userUrl = "http://localhost:3000/user";
+const userUrl = "http://localhost:8080/users";
 
 @Injectable({
   providedIn: 'root'

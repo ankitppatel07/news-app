@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 //import data from 'src/app/data/data.json';
 
-const queryUrl = "http://localhost:3000/query"
+const queryUrl = "http://localhost:8080/queries";
 
 @Injectable({
   providedIn: 'root'

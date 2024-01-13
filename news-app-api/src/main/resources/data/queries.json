@@ -1,30 +1,37 @@
 [
 	{
 		"email":"ankit@gmail.com",
-		"query":"The details of the article related to Lionel Messi in the sports section are inaccurate. Please rectify."
+		"query":"The details of the article related to Lionel Messi in the sports section are inaccurate. Please rectify.",
+		"status": "Pending"
 	},
 	{
 		"email":"ankil@gmail.com",
-		"query":"I found the article on climate change interesting. Please include similar articles."
+		"query":"I found the article on climate change interesting. Please include similar articles.",
+		"status": "Pending"
 	},
 	{
 		"email":"asmita@gmail.com",
-		"query":"I would like to have premium subscription. Can you send me details on monthly/annual subscription charges??"
+		"query":"I would like to have premium subscription. Can you send me details on monthly/annual subscription charges??",
+		"status": "Pending"
 	},
 	{
 		"email":"nilay@gmail.com",
-		"query":"I have paid for premium membership and I dont have access to premium contact. Please look into this..."
+		"query":"I have paid for premium membership and I dont have access to premium contact. Please look into this...",
+		"status": "Pending"
 	},
 	{
 		"email":"yamini@gmail.com",
-		"query":"The details of the article related to the Basketball game are inaccurate. Please rectify."
+		"query":"The details of the article related to the Basketball game are inaccurate. Please rectify.",
+		"status": "Pending"
 	},
 	{
 		"email":"legolas@gmail.com",
-		"query":"I would like to cancel my subscription."
+		"query":"I would like to cancel my subscription.",
+		"status": "Pending"
 	},
 	{
 		"email":"gandalf@gmail.com",
-		"query":"Great content. Keep up the good work!!!"
+		"query":"Great content. Keep up the good work!!!",
+		"status": "Pending"
 	}
 ]

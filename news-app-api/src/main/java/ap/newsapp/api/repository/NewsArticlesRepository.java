@@ -18,8 +18,6 @@ public interface NewsArticlesRepository extends MongoRepository<NewsArticles, In
 			}	
 		  )
 	public List<NewsArticles> findLatestSportsArticles();
-
-//	public List<NewsArticles> findByCategoryOrderByPublishedAtDesc(String category);
 	
 	@Aggregation(pipeline = {
 			"{ '$sort' : { 'publishedAt' : -1 } }",

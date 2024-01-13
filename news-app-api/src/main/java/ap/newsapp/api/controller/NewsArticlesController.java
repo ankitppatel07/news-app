@@ -3,7 +3,10 @@ package ap.newsapp.api.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,32 +54,35 @@ public class NewsArticlesController {
 	}
 	
 	@PostMapping("/articles")
-	public String saveNewsArticle(@RequestBody NewsArticles newsArticle) {
+	public ResponseEntity<String> saveNewsArticle(@RequestBody NewsArticles newsArticle) {
 		//generate sequence
 		newsArticle.setId(sequenceGeneratorService.getSequenceNumber(NewsArticles.SEQUENCE_NAME));
 		newsArticle.setPublishedAt();
 		newsArticlesRepository.save(newsArticle);
-		return "News Article Added with Id: " +newsArticle.getId();
+		
+		JSONObject obj = new JSONObject();
+		obj.put("Response", "Article(Id: " +newsArticle.getId() + " is added.");
+		return new ResponseEntity<String>(obj.toString(), HttpStatus.OK);
 	}
 	
 	@PutMapping("/articles")
-	public String updateNewsArticle(@RequestBody NewsArticles updatedNewsArticle) {
+	public ResponseEntity<String> updateNewsArticle(@RequestBody NewsArticles updatedNewsArticle) {
 		NewsArticles newsArticle = newsArticlesRepository.findById(updatedNewsArticle.getId()).get();
 		newsArticle.setTitle(updatedNewsArticle.getTitle());
 		newsArticle.setDescription(updatedNewsArticle.getDescription());
 		newsArticle.setCategory(updatedNewsArticle.getCategory());
 		newsArticle.setPublishedAt();
 		newsArticlesRepository.save(newsArticle);
-		return "News Article Updated with Id: " +newsArticle.getId();
+		
+		JSONObject obj = new JSONObject();
+		obj.put("Response", "Article(Id: " +newsArticle.getId() + " is updated.");
+		return new ResponseEntity<String>(obj.toString(), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/articles/{id}")
 	public String deleteArticle(@PathVariable int id) {
 		newsArticlesRepository.deleteById(id);
-		return "Article deleted with ID: " +id;
+		return "Article(Id: " + id + " is deleted.";
 	}
-	
-	
-	
 	
 }

@@ -29,7 +29,7 @@ export class ContactUsComponent implements OnInit {
       "pending")
     this.homeService.submitQuery(query).subscribe(
       (data) => {
-        //do nothing
+        alert("Your Query has been submitted!!!")
       },
       (err) => {
         console.log("Error submitting query!!!")

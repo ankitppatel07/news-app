@@ -4,8 +4,9 @@ import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user'
 //import data from 'src/app/data/data.json';
 
-const registerUrl = "http://localhost:3000/register"
-const loginUrl = "http://localhost:3000/login"
+const registerUrl = "http://localhost:8080/users/register"
+
+const loginUrl = "http://localhost:8080/users/login"
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,6 @@ export class LoginRegService {
 
   constructor(private http: HttpClient) { }
 
-  
   registerUser(user : User) : Observable<User>{
     return this.http.post<User>(registerUrl, user);
   }

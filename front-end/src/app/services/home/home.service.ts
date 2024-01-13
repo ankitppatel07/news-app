@@ -4,16 +4,14 @@ import { Observable } from 'rxjs'
 import { NewsArticle } from 'src/app/models/newsarticle'
 import { Query } from 'src/app/models/query'
 
-const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?"
-const apiKey = ""
+const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?";
+const apiKey = "OPENWEATHER_API_KEY";
 
-const newsUrl = "http://localhost:8080/articles"
+const newsUrl = "http://localhost:8080/articles";
 const latestNewsUrl = "http://localhost:8080/articles/latest";
-const sportsNewsUrl = "http://localhost:8080/articles/sports"
+const sportsNewsUrl = "http://localhost:8080/articles/sports";
 const latestSportsNewsUrl = "http://localhost:8080/articles/sports/latest";
-
-const queryUrl = "http://localhost:3000/query"
-
+const queryUrl = "http://localhost:8080/queries";
 
 @Injectable({
   providedIn: 'root'
