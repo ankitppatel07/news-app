@@ -3,23 +3,16 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { NewsArticle } from 'src/app/models/newsarticle'
 import { Query } from 'src/app/models/query'
-//import data from 'src/app/data/data.json';
 
 const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?"
 const apiKey = ""
-// const newsUrl = "http://localhost:3000/news-list"
-const newsUrl = "http://localhost:8080/get-articles"
 
-// const latestNewsUrl = "http://localhost:3000/latest-news-list"
-const latestNewsUrl = "http://localhost:8080/get-latest-articles";
+const newsUrl = "http://localhost:8080/articles"
+const latestNewsUrl = "http://localhost:8080/articles/latest";
+const sportsNewsUrl = "http://localhost:8080/articles/sports"
+const latestSportsNewsUrl = "http://localhost:8080/articles/sports/latest";
 
 const queryUrl = "http://localhost:3000/query"
-
-// const sportsNewsUrl = "http://localhost:3000/sports-news"
-const sportsNewsUrl = "http://localhost:8080/get-sports-articles"
-
-// const latestSportsNewsUrl = "http://localhost:3000/latest-sports-news"
-const latestSportsNewsUrl = "http://localhost:8080/get-latest-sports-articles";
 
 
 @Injectable({

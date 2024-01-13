@@ -17,7 +17,7 @@
             <td> {{i.title}}</td>
             <td> {{i.description}}</td>
             <td> {{i.category}}</td>
-            <td> {{i.publishedAt | date:"MM/dd/yy hh:mm:ss"}}</td>
+            <td> {{i.publishedAt | date:"MM/dd/yyyy hh:mm:ss"}}</td>
             <td>
                 <button class="btn btn-dark btn-sm" (click)="editNews(i.id)">Edit</button>
                 <button class="btn btn-danger btn-sm mt-2" (click)="deleteNews(i)">Delete</button>

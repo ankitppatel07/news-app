@@ -1,23 +1,20 @@
-package ap.newsapp.api.resource;
+package ap.newsapp.api.controller;
 
 import java.util.List;
-import java.util.Date;
 import java.util.Optional;
-import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import ap.newsapp.api.model.NewsArticles;
 import ap.newsapp.api.repository.NewsArticlesRepository;
 import ap.newsapp.api.service.SequenceGeneratorService;
-import static com.mongodb.client.model.Sorts.descending;
 
 @RestController
 public class NewsArticlesController {
@@ -28,7 +25,32 @@ public class NewsArticlesController {
 	@Autowired
 	private SequenceGeneratorService sequenceGeneratorService;
 	
-	@PostMapping("/add-article")
+	@GetMapping("/articles")
+	public List<NewsArticles> getArticles() {
+		return newsArticlesRepository.findAll();
+	}
+	
+	@GetMapping("/articles/{id}")
+	public Optional<NewsArticles> getNewsArticle(@PathVariable int id) {
+		return newsArticlesRepository.findById(id);
+	}
+	
+	@GetMapping("/articles/latest")
+	public List<NewsArticles> getLatestArticles() {
+		return newsArticlesRepository.findLatestArticles();
+	}
+	
+	@GetMapping("/articles/sports")
+	public List<NewsArticles> getSportsArticles() {
+		return newsArticlesRepository.findByCategory("Sports");
+	}
+	
+	@GetMapping("/articles/sports/latest")
+	public List<NewsArticles> getLatestSportsArticles() {
+		return newsArticlesRepository.findLatestSportsArticles();
+	}
+	
+	@PostMapping("/articles")
 	public String saveNewsArticle(@RequestBody NewsArticles newsArticle) {
 		//generate sequence
 		newsArticle.setId(sequenceGeneratorService.getSequenceNumber(NewsArticles.SEQUENCE_NAME));
@@ -37,36 +59,24 @@ public class NewsArticlesController {
 		return "News Article Added with Id: " +newsArticle.getId();
 	}
 	
-	@GetMapping("/get-articles")
-	public List<NewsArticles> getArticles() {
-		return newsArticlesRepository.findAll();
+	@PutMapping("/articles")
+	public String updateNewsArticle(@RequestBody NewsArticles updatedNewsArticle) {
+		NewsArticles newsArticle = newsArticlesRepository.findById(updatedNewsArticle.getId()).get();
+		newsArticle.setTitle(updatedNewsArticle.getTitle());
+		newsArticle.setDescription(updatedNewsArticle.getDescription());
+		newsArticle.setCategory(updatedNewsArticle.getCategory());
+		newsArticle.setPublishedAt();
+		newsArticlesRepository.save(newsArticle);
+		return "News Article Updated with Id: " +newsArticle.getId();
 	}
 	
-	@GetMapping("/get-latest-articles")
-	public List<NewsArticles> getLatestArticles() {
-		return newsArticlesRepository.findLatestArticles();
-	}
-	
-	@GetMapping("/get-article/{id}")
-	public Optional<NewsArticles> getNewsArticle(@PathVariable int id) {
-		return newsArticlesRepository.findById(id);
-	}
-	
-	@DeleteMapping("/delete-article/{id}")
+	@DeleteMapping("/articles/{id}")
 	public String deleteArticle(@PathVariable int id) {
 		newsArticlesRepository.deleteById(id);
 		return "Article deleted with ID: " +id;
 	}
 	
-	@GetMapping("/get-sports-articles")
-	public List<NewsArticles> getSportsArticles() {
-		return newsArticlesRepository.findByCategory("Sports");
-	}
 	
-	@GetMapping("/get-latest-sports-articles")
-	public List<NewsArticles> getLatestSportsArticles() {
-		return newsArticlesRepository.findLatestSportsArticles();
-	}
 	
 	
 }
