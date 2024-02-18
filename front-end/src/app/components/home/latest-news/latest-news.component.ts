@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/home/home.service'
-import { NewsArticle } from 'src/app/models/newsarticle';
+import { Article } from 'src/app/models/article';
 
 @Component({
   selector: 'app-latest-news',
@@ -9,7 +9,7 @@ import { NewsArticle } from 'src/app/models/newsarticle';
 })
 export class LatestNewsComponent implements OnInit {
 
-  latestNewsArray : NewsArticle[] = [ {
+  latestNewsArray : Article[] = [ {
     id: '',
     title: '',
     description: '',
@@ -22,8 +22,8 @@ export class LatestNewsComponent implements OnInit {
   constructor(private homeService : HomeService) { }
 
   ngOnInit(): void {
-    this.homeService.getLatestNewsData().subscribe(
-      (data : NewsArticle[]) => {
+    this.homeService.getLatestArticles().subscribe(
+      (data : Article[]) => {
         this.latestNewsArray = data;
       },
       (err) => {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { } from '@angular/google-maps'
 
 @Component({
   selector: 'app-about-us',

@@ -13,9 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { WeatherReportComponent } from './components/home/weather-report/weather-report.component';
 import { ImageSliderComponent } from './components/home/image-slider/image-slider.component';
 import { LatestNewsComponent } from './components/home/latest-news/latest-news.component';
-import { ChatBoxComponent } from './components/shared/chat-box/chat-box.component';
-import { NewsArticlesComponent } from './components/home/news-articles/news-articles.component';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { ArticlesComponent } from './components/home/articles/articles.component';
 import { AdminComponent } from './admin/admin.component';
 import { RegisterComponent } from './admin/register/register.component';
 import { LoginComponent } from './admin/login/login.component';
@@ -31,9 +29,6 @@ import { SearchPipe } from './pipes/search.pipe';
 import { UserSearchPipe } from './pipes/user-search.pipe';
 import { QuerySearchPipe } from './pipes/query-search.pipe';
 import { GoogleMapsModule } from '@angular/google-maps'
-
-
-// const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -59,8 +54,7 @@ const routes: Routes = [
     WeatherReportComponent,
     ImageSliderComponent,
     LatestNewsComponent,
-    ChatBoxComponent,
-    NewsArticlesComponent,
+    ArticlesComponent,
     AdminComponent,
     RegisterComponent,
     LoginComponent,
@@ -78,7 +72,6 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    // SocketIoModule.forRoot(config),
     HttpClientModule,
     RouterModule.forRoot(routes, {}),
     ReactiveFormsModule,

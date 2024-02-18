@@ -1,0 +1,44 @@
+[
+{
+	"name" : "admin",
+	"email" : "admin@gmail.com",
+	"userType" : "admin",
+	"password" : "admin123"
+},
+{
+	"name" : "Legolas",
+	"email" : "legolas@gmail.com",
+	"userType" : "normal",
+	"password" : "legolas123"
+},
+{
+	"name" : "Ankit",
+	"email" : "ankit@gmail.com",
+	"userType" : "normal",
+	"password" : "ankit123"
+},
+{
+	"name" : "Ankil",
+	"email" : "ankil@gmail.com",
+	"userType" : "normal",
+	"password" : "ankil123"
+},
+{
+	"name" : "Asmita",
+	"email" : "asmita@gmail.com",
+	"userType" : "normal",
+	"password" : "asmita123"
+},
+{
+	"name" : "Nilay",
+	"email" : "nilay@gmail.com",
+	"userType" : "normal",
+	"password" : "nilay123"
+},
+{
+	"name" : "Yamini",
+	"email" : "yamini@gmail.com",
+	"userType" : "normal",
+	"password" : "yamini123"
+}
+]

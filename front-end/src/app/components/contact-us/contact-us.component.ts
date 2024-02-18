@@ -26,7 +26,7 @@ export class ContactUsComponent implements OnInit {
     const query = new Query(
       this.contactForm.value.email, 
       this.contactForm.value.query,
-      "pending")
+      "Pending")
     this.homeService.submitQuery(query).subscribe(
       (data) => {
         alert("Your Query has been submitted!!!")

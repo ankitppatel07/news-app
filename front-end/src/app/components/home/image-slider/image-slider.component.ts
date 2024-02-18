@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsArticle } from 'src/app/models/newsarticle';
+import { Article } from 'src/app/models/article';
 import { HomeService } from 'src/app/services/home/home.service'
 
 @Component({
@@ -9,7 +9,7 @@ import { HomeService } from 'src/app/services/home/home.service'
 })
 export class ImageSliderComponent implements OnInit {
 
-  latestNewsArray : NewsArticle[] = [ {
+  latestNewsArray : Article[] = [ {
     id: '',
     title: '',
     description: '',
@@ -22,12 +22,12 @@ export class ImageSliderComponent implements OnInit {
   constructor(private homeService : HomeService) { }
 
   ngOnInit(): void {
-    this.homeService.getLatestNewsData().subscribe(
-      (data : NewsArticle[]) => {
+    this.homeService.getLatestArticles().subscribe(
+      (data : Article[]) => {
         this.latestNewsArray = data;
       },
       (err) => {
-        console.log("Error fetching latest news!!!")
+        console.log("Error fetching latest Articles!!!")
       }
     );
   }

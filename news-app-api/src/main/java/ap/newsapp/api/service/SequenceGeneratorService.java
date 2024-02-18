@@ -1,6 +1,7 @@
 package ap.newsapp.api.service;
 
 import java.util.Objects;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -18,7 +19,16 @@ public class SequenceGeneratorService {
 	@Autowired
 	private MongoOperations mongoOperations;
 	
+	Logger logger = Logger.getLogger(SequenceGeneratorService.class.getName()); 
+	
+	public SequenceGeneratorService() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getSequenceNumber(String sequenceName) {
+		logger.info("Executing getSequenceNumber(sequenceName) method");
+
 		//Get Sequence No
 		Query query = new Query(Criteria.where("id").is(sequenceName));
 		//Update the Sequence No

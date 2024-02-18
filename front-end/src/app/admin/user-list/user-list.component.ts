@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/admin/user.service'
 import { LoginRegService } from 'src/app/services/admin/login-reg.service'
-import { MsgService } from 'src/app/services/msg/msg.service' 
 
 @Component({
   selector: 'app-user-list',
@@ -16,8 +15,7 @@ export class UserListComponent implements OnInit {
   idFlag : string ='';
 
   constructor(private userService : UserService,
-    public loginRegService : LoginRegService,
-    private msgService: MsgService) { }
+    public loginRegService : LoginRegService) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(

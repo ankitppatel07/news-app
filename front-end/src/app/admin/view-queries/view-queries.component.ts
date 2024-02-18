@@ -32,13 +32,13 @@ export class ViewQueriesComponent implements OnInit {
     this.emailFlag = email;
   }
 
-  updateQuery(updatedQuery) {
+  updateQuery(updatedQuery: Query) {
     this.queryService.updateQuery(updatedQuery).subscribe(
       (data) => {
         alert("Query Status has been updated!!!")
       },
       (err) => {
-        console.log("Error updating query")
+        console.log("Error updating query!!!")
       }
     )
     this.emailFlag = '';

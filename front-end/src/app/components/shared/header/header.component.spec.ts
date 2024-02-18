@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
+import { By } from '@angular/platform-browser';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -19,7 +20,10 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('check website name', () => {
+    const websiteName = fixture.debugElement.query(
+      By.css('[data-testid="website-name"]')
+    );
+    expect(websiteName.nativeElement.textContent).toBe('XYZ News');
   });
 });

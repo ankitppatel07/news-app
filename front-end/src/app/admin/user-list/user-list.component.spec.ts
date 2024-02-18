@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 
 import { UserListComponent } from './user-list.component';
+import { UserSearchPipe } from 'src/app/pipes/user-search.pipe'
 
 describe('UserListComponent', () => {
   let component: UserListComponent;
@@ -8,7 +10,8 @@ describe('UserListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserListComponent ]
+      imports: [ HttpClientTestingModule ],
+      declarations: [ UserListComponent, UserSearchPipe ]
     })
     .compileComponents();
   }));

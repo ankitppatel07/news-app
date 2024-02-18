@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from 'src/app/services/home/home.service'
-import { NewsArticle } from 'src/app/models/newsarticle';
+import { Article } from 'src/app/models/article';
 
 @Component({
   selector: 'app-sports',
@@ -9,7 +9,7 @@ import { NewsArticle } from 'src/app/models/newsarticle';
 })
 export class SportsComponent implements OnInit {
 
-  latestSportsNews : NewsArticle[] = [ {
+  latestSportsNews : Article[] = [ {
     id: '',
     title: '',
     description: '',
@@ -19,26 +19,26 @@ export class SportsComponent implements OnInit {
     publishedAt: ''
   } ]
 
-  allSportsNews : NewsArticle[] = []
+  allSportsNews : Article[] = []
 
   constructor(private homeService : HomeService) { }
 
   ngOnInit(): void {
-    this.homeService.getLatestSportsNews().subscribe(
-      (data : NewsArticle[]) => {
+    this.homeService.getLatestSportsArticles().subscribe(
+      (data : Article[]) => {
         this.latestSportsNews = data;
       },
       (err) => {
-        console.log("Error fetching latest sports news!!!")
+        console.log("Error fetching latest sports Articles!!!")
       }
     );
 
-    this.homeService.getSportsNews().subscribe(
-      (data : NewsArticle[]) => {
+    this.homeService.getSportsArticles().subscribe(
+      (data : Article[]) => {
         this.allSportsNews = data;
       },
       (err) => {
-        console.log("Error fetching all sports news!!!")
+        console.log("Error fetching all sports Articles!!!")
       }
     );
   }

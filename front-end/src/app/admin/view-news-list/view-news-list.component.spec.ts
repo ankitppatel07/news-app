@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 
 import { ViewNewsListComponent } from './view-news-list.component';
+import { SearchPipe } from 'src/app/pipes/search.pipe';
 
 describe('ViewNewsListComponent', () => {
   let component: ViewNewsListComponent;
@@ -8,7 +10,8 @@ describe('ViewNewsListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewNewsListComponent ]
+      imports: [ HttpClientTestingModule ],
+      declarations: [ ViewNewsListComponent, SearchPipe ]
     })
     .compileComponents();
   }));

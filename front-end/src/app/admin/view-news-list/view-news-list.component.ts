@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsArticle } from 'src/app/models/newsarticle';
-import { NewsService } from 'src/app/services/admin/news.service'
+import { Article } from 'src/app/models/article';
+import { ArticlesService } from 'src/app/services/admin/articles.service'
 import { MsgService } from 'src/app/services/msg/msg.service' 
 
 @Component({
@@ -11,10 +11,10 @@ import { MsgService } from 'src/app/services/msg/msg.service'
 export class ViewNewsListComponent implements OnInit {
 
   query : string = ''
-  allNewsArray : NewsArticle[] = []
+  allNewsArray : Article[] = []
   idFlag : string ='';
 
-  constructor(private newsService : NewsService,
+  constructor(private articlesService : ArticlesService,
     private msgService: MsgService) { }
 
   ngOnInit(): void {
@@ -26,8 +26,8 @@ export class ViewNewsListComponent implements OnInit {
   }
 
   getAllNews() {
-    this.newsService.getAllNewsData().subscribe(
-      (data : NewsArticle[]) => {
+    this.articlesService.getAllArticles().subscribe(
+      (data : Article[]) => {
         this.allNewsArray = data;
       },
       (err) => {
@@ -41,7 +41,7 @@ export class ViewNewsListComponent implements OnInit {
   }
 
   updateNews(updatedNews) {
-    this.newsService.updateNewsData(updatedNews).subscribe(
+    this.articlesService.updateArticle(updatedNews).subscribe(
       (data) => {
         alert("News Article Updated!!!")
       },
@@ -53,9 +53,9 @@ export class ViewNewsListComponent implements OnInit {
   }
 
   deleteNews(deleteArticle) {
-    this.newsService.deleteNewsData(deleteArticle.id).subscribe(
+    this.articlesService.deleteArticle(deleteArticle.id).subscribe(
       (data) => {
-        this.msgService.sendMsg({msg : 'News Article Deleted!!'})
+        // this.msgService.sendMsg({msg : 'News Article Deleted!!'})
         alert("News Article Deleted!!!")
       },
       (err) => {

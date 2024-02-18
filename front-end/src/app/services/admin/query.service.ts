@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Query } from 'src/app/models/query';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-//import data from 'src/app/data/data.json';
 
 const queryUrl = "http://localhost:8080/queries";
 
@@ -17,7 +16,7 @@ export class QueryService {
     return this.http.get<Query[]>(queryUrl);
   }
 
-  updateQuery(data) : Observable<Query> {
-    return this.http.put<Query>(queryUrl, data);
+  updateQuery(query: Query) : Observable<Query> {
+    return this.http.put<Query>(queryUrl, query);
   }
 }

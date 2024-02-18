@@ -1,8 +1,8 @@
 package ap.newsapp.api.controller;
 
 import java.util.List;
+import java.util.logging.Logger;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,52 +15,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import ap.newsapp.api.model.Queries;
-import ap.newsapp.api.repository.QueriesRepository;
-import ap.newsapp.api.service.SequenceGeneratorService;
+import ap.newsapp.api.service.QueriesService;
 
 @RestController
 public class QueriesController {
 	
 	@Autowired
-	private QueriesRepository queriesRepository;
+	private QueriesService queriesService;
 	
-	@Autowired
-	private SequenceGeneratorService sequenceGeneratorService;
+	Logger logger = Logger.getLogger(QueriesController.class.getName()); 
 	
 	@GetMapping("/queries")
 	public List<Queries> getLatestSportsArticles() {
-		return queriesRepository.findAll();
+		logger.info("GET Request at /queries");
+		return queriesService.getLatestSportsArticles();
 	}
 	
 	@PostMapping("/queries")
 	public ResponseEntity<String> saveQuery(@RequestBody Queries query) {
-		//generate sequence
-		query.setId(sequenceGeneratorService.getSequenceNumber(Queries.SEQUENCE_NAME));
-		queriesRepository.save(query);
-		
-		JSONObject obj = new JSONObject();
-		obj.put("Response", "Query(Id: " +query.getId() + " is added.");
-		return new ResponseEntity<String>(obj.toString(), HttpStatus.OK);
+		logger.info("POST Request at /queries");
+		return new ResponseEntity<String>(queriesService.saveQuery(query), HttpStatus.OK);
 	}
 	
 	@PutMapping("/queries")
 	public ResponseEntity<String> updateQuery(@RequestBody Queries updatedQuery) {
-		Queries query = queriesRepository.findById(updatedQuery.getId()).get();
-		
-		query.setEmail(updatedQuery.getEmail());
-		query.setQuery(updatedQuery.getQuery());
-		query.setStatus(updatedQuery.getStatus());
-		queriesRepository.save(query);
-		
-		JSONObject obj = new JSONObject();
-		obj.put("Response", "Query(Id: " +query.getId() + " is updated.");
-		return new ResponseEntity<String>(obj.toString(), HttpStatus.OK);
+		logger.info("PUT Request at /queries");
+		return new ResponseEntity<String>(queriesService.updateQuery(updatedQuery), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/queries/{id}")
-	public String deleteQuery(@PathVariable int id) {
-		queriesRepository.deleteById(id);
-		return "Query(Id: " + id + " is deleted.";
+	public ResponseEntity<String> deleteQuery(@PathVariable int id) {
+		logger.info("DELETE Request at /queries/{id}");
+		return new ResponseEntity<String>(queriesService.deleteQuery(id), HttpStatus.OK);
 	}
 
 }

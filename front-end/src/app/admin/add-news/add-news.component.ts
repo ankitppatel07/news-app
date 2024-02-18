@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, FormControl, Validators } from '@angular/forms'
-import { NewsService } from 'src/app/services/admin/news.service'
+import { ArticlesService } from 'src/app/services/admin/articles.service'
 
 @Component({
   selector: 'app-add-news',
@@ -12,7 +12,7 @@ export class AddNewsComponent implements OnInit {
   addNewsForm: UntypedFormGroup;
 
   constructor(private builder: UntypedFormBuilder,
-    private newsService: NewsService) { }
+    private articlesService: ArticlesService) { }
 
   ngOnInit(): void {
     this.addNewsForm = this.builder.group({
@@ -26,7 +26,6 @@ export class AddNewsComponent implements OnInit {
   }
 
   handleSubmit() {
-    console.log(this.addNewsForm.value)
     const newNews = {
       title : this.addNewsForm.value.title,
       description : this.addNewsForm.value.description,
@@ -35,9 +34,9 @@ export class AddNewsComponent implements OnInit {
       imageUrl : this.addNewsForm.value.imageUrl,
     }
 
-    this.newsService.addNewsData(newNews).subscribe(
+    this.articlesService.addArticle(newNews).subscribe(
       (data) => { 
-        alert("News Article added!!!")
+        alert("Article added!!!")
       },
       (err) => {
         console.log("Error adding data!!!")

@@ -7,8 +7,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "newsarticles")
-public class NewsArticles {
+@Document(collection = "articles")
+public class Articles {
 	
 	@Transient
 	public static final String SEQUENCE_NAME = "article_sequence";
@@ -21,6 +21,21 @@ public class NewsArticles {
 	private String articleUrl;
 	private String imageUrl;
 	private String publishedAt;
+	
+	public Articles() {
+		
+	}
+
+	public Articles(int id, String title, String description, 
+			String category, String articleUrl, String imageUrl) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.category = category;
+		this.articleUrl = articleUrl;
+		this.imageUrl = imageUrl;
+	}
 
 	public int getId() {
 		return id;
@@ -83,7 +98,7 @@ public class NewsArticles {
 	
 	@Override
 	public String toString() {
-		return "NewsArticles [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category
+		return "Articles [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category
 				+ ", articleUrl=" + articleUrl + ", imageUrl=" + imageUrl + ", publishedAt=" + publishedAt + "]";
 	}
 	

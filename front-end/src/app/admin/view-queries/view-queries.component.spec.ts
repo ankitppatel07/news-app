@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 
 import { ViewQueriesComponent } from './view-queries.component';
+import { QuerySearchPipe } from 'src/app/pipes/query-search.pipe';
 
 describe('ViewQueriesComponent', () => {
   let component: ViewQueriesComponent;
@@ -8,7 +10,8 @@ describe('ViewQueriesComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewQueriesComponent ]
+      imports: [ HttpClientTestingModule ],
+      declarations: [ ViewQueriesComponent, QuerySearchPipe ]
     })
     .compileComponents();
   }));

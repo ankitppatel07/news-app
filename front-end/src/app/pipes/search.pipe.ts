@@ -9,8 +9,8 @@ export class SearchPipe implements PipeTransform {
     // console.log(args[0]);
     if (typeof args[0] === 'undefined') return value
 
-    return value.filter((newsArticle) => {
-      return newsArticle.title.toUpperCase().indexOf(args[0].toUpperCase()) > -1
+    return value.filter((article) => {
+      return article.title.toUpperCase().indexOf(args[0].toUpperCase()) > -1
     });
   }
 

@@ -1,4 +1,4 @@
-export class NewsArticle {
+export class Article {
     id: string;
     title : string;
     description : string;
@@ -7,7 +7,7 @@ export class NewsArticle {
     imageUrl : string;
     publishedAt : string;
 
-    constructor(id, title, description, category, articleUrl, imageUrl, publishedAt) {
+    constructor(title:string, description, category, articleUrl, imageUrl, publishedAt, id?:string) {
         this.id = id;
         this.title = title;
         this.description = description;

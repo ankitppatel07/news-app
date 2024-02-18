@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 
 import { LatestNewsComponent } from './latest-news.component';
 
@@ -8,6 +9,7 @@ describe('LatestNewsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ],
       declarations: [ LatestNewsComponent ]
     })
     .compileComponents();
