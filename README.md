@@ -12,6 +12,6 @@ Admin Features:
 - Update Query Status
 - Update User
 
-Front-End UI: Angular 17
-Back-End API: Spring Boot
-Database: MongoDB
+** Front-End UI: Angular 17
+** Back-End API: Spring Boot
+** Database: MongoDB
