@@ -17,6 +17,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+	/*
+	 * To access documentation, 
+	 * visit http://localhost:8080/swagger-ui/index.html
+	 */
 
 	@Bean
 	Docket articlesConfiguration() {
