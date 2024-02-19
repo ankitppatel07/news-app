@@ -20,7 +20,8 @@ public class QueriesService {
 	
 	Logger logger = Logger.getLogger(QueriesService.class.getName()); 
 	
-	public List<Queries> getLatestSportsArticles() {
+	public List<Queries> getQueries() {
+		logger.info("Executing getQueries() method");
 		return queriesRepository.findAll();
 	}
 	

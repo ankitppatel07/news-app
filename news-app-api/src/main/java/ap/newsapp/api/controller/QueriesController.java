@@ -12,12 +12,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ap.newsapp.api.model.Queries;
 import ap.newsapp.api.service.QueriesService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
+@RequestMapping("/queries")
+@Api(tags = "Queries Controller", description = "API to perform CRUD Operations on Queries")
 public class QueriesController {
 	
 	@Autowired
@@ -25,25 +30,29 @@ public class QueriesController {
 	
 	Logger logger = Logger.getLogger(QueriesController.class.getName()); 
 	
-	@GetMapping("/queries")
-	public List<Queries> getLatestSportsArticles() {
+	@GetMapping("/")
+	@ApiOperation(value = "Gets all the Queries", response = ResponseEntity.class)
+	public List<Queries> getQueries() {
 		logger.info("GET Request at /queries");
-		return queriesService.getLatestSportsArticles();
+		return queriesService.getQueries();
 	}
 	
-	@PostMapping("/queries")
+	@PostMapping("/")
+	@ApiOperation(value = "Saves a Query", response = ResponseEntity.class)
 	public ResponseEntity<String> saveQuery(@RequestBody Queries query) {
 		logger.info("POST Request at /queries");
 		return new ResponseEntity<String>(queriesService.saveQuery(query), HttpStatus.OK);
 	}
 	
-	@PutMapping("/queries")
+	@PutMapping("/")
+	@ApiOperation(value = "Updates a Query", response = ResponseEntity.class)
 	public ResponseEntity<String> updateQuery(@RequestBody Queries updatedQuery) {
 		logger.info("PUT Request at /queries");
 		return new ResponseEntity<String>(queriesService.updateQuery(updatedQuery), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/queries/{id}")
+	@DeleteMapping("/{id}")
+	@ApiOperation(value = "Deletes a Query", response = ResponseEntity.class)
 	public ResponseEntity<String> deleteQuery(@PathVariable int id) {
 		logger.info("DELETE Request at /queries/{id}");
 		return new ResponseEntity<String>(queriesService.deleteQuery(id), HttpStatus.OK);

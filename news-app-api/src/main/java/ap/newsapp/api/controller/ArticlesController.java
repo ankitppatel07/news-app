@@ -13,12 +13,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ap.newsapp.api.model.Articles;
 import ap.newsapp.api.service.ArticlesService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
+@RequestMapping("/articles")
+@Api(tags = "Articles Controller", description = "API to perform CRUD Operations on Articles")
 public class ArticlesController {
 	
 	@Autowired
@@ -26,37 +31,43 @@ public class ArticlesController {
 	
 	Logger logger = Logger.getLogger(ArticlesController.class.getName()); 
 	
-	@GetMapping("/articles")
+	@GetMapping("/")
+	@ApiOperation(value = "Gets all the Articles", response = ResponseEntity.class)
 	public ResponseEntity<List<Articles>> getArticles() {
 		logger.info("GET Request at /articles");
 		return new ResponseEntity<List<Articles>>(articlesService.getArticles(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/articles/{id}")
+	@GetMapping("/{id}")
+	@ApiOperation(value = "Gets an Article by ID", response = ResponseEntity.class)
 	public ResponseEntity<Articles> getArticle(@PathVariable int id) {
 		logger.info("GET Request at /articles/{id}");
 		return new ResponseEntity<Articles>(articlesService.getArticle(id), HttpStatus.OK);
 	}
 	
-	@GetMapping("/articles/latest")
+	@GetMapping("/latest")
+	@ApiOperation(value = "Gets the latest top 3 Articles", response = ResponseEntity.class)
 	public ResponseEntity<List<Articles>> getLatestArticles() {
 		logger.info("GET Request at /articles/latest");
 		return new ResponseEntity<List<Articles>>(articlesService.getLatestArticles(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/articles/sports")
+	@GetMapping("/sports")
+	@ApiOperation(value = "Gets the all the Sports Articles", response = ResponseEntity.class)
 	public ResponseEntity<List<Articles>> getSportsArticles() {
 		logger.info("GET Request at /articles/sports");
 		return new ResponseEntity<List<Articles>>(articlesService.getSportsArticles(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/articles/sports/latest")
+	@GetMapping("/sports/latest")
+	@ApiOperation(value = "Gets the latest top 3 Sports Articles", response = ResponseEntity.class)
 	public ResponseEntity<List<Articles>> getLatestSportsArticles() {
 		logger.info("GET Request at /articles/sports/latest");
 		return new ResponseEntity<List<Articles>>(articlesService.getLatestSportsArticles(), HttpStatus.OK);
 	}
 	
-	@PostMapping("/articles")
+	@PostMapping("/")
+	@ApiOperation(value = "Saves an Article", response = ResponseEntity.class)
 	public ResponseEntity<String> saveArticle(@RequestBody Articles article) {
 		logger.info("POST Request at /articles");
 		articlesService.saveArticle(article);
@@ -66,7 +77,8 @@ public class ArticlesController {
 		return new ResponseEntity<String>(obj.toString(), HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/articles")
+	@PutMapping("/")
+	@ApiOperation(value = "Updates an Article", response = ResponseEntity.class)
 	public ResponseEntity<String> updateArticle(@RequestBody Articles article) {
 		logger.info("PUT Request at /articles");
 		Articles updatedArticle = articlesService.updateArticle(article);
@@ -76,7 +88,8 @@ public class ArticlesController {
 		return new ResponseEntity<String>(obj.toString(), HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/articles/{id}")
+	@DeleteMapping("/{id}")
+	@ApiOperation(value = "Deletes an Article", response = ResponseEntity.class)
 	public ResponseEntity<String> deleteArticle(@PathVariable int id) {
 		logger.info("DELETE Request at /articles/{id}");
 		articlesService.deleteArticle(id);
